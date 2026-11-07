@@ -10,40 +10,17 @@ const IMAGES = [
   "https://pic1.imgdb.cn/i/034tCxHZEnZpimvVAafNRg.jpg",
 ];
 
-export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-    const format = (url.searchParams.get("format") || "").toLowerCase();
+// 洗牌轮播：牌堆发空了就重新洗一副，一轮内不重复
+let deck = [];
 
-    // 列表为空时的兜底
+export default {
+  async fetch() {
     if (IMAGES.length === 0) {
       return new Response("no images configured", { status: 500 });
     }
-
-    const pick = IMAGES[Math.floor(Math.random() * IMAGES.length)];
-
-    // 默认 302 重定向：可直接当图片地址用（如影视App的 wallpaper）
-    if (format === "" || format === "redirect") {
-      return Response.redirect(pick, 302);
+    if (deck.length === 0) {
+      deck = [...IMAGES].sort(() => Math.random() - 0.5);
     }
-
-    // ?format=text —— 返回纯文本 URL
-    if (format === "text") {
-      return new Response(pick + "\n", {
-        headers: { "content-type": "text/plain; charset=utf-8" },
-      });
-    }
-
-    // ?format=json —— 返回 JSON
-    if (format === "json") {
-      return new Response(JSON.stringify({ url: pick }), {
-        headers: {
-          "content-type": "application/json; charset=utf-8",
-          "access-control-allow-origin": "*",
-        },
-      });
-    }
-
-    return new Response("unknown format, use ?format=text|json", { status: 400 });
+    return Response.redirect(deck.pop(), 302);
   },
 };
