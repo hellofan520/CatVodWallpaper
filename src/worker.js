@@ -1,9 +1,13 @@
 // ============ 图片 URL 列表（自行在此添加/删减） ============
 const IMAGES = [
-  // 示例：替换成你图床的真实图片地址
-  "https://example.com/img/001.jpg",
-  "https://example.com/img/002.jpg",
-  "https://example.com/img/003.jpg",
+  "https://pic1.imgdb.cn/i/034tDE9VsMksHKHMXLZqsJ.jpg",
+  "https://pic1.imgdb.cn/i/034tDE7hHnj3c4ZXhZ8eMq.jpg",
+  "https://pic1.imgdb.cn/i/034tDE7UWF9OxbqPismUBx.jpg",
+  "https://pic1.imgdb.cn/i/034tDE2CzE3uyjWdBqILRj.jpg",
+  "https://pic1.imgdb.cn/i/034tDE1hnJh8hgJE9tzpQ4.jpg",
+  "https://pic1.imgdb.cn/i/034tDE03XC7sW6X2PvLNAb.jpg",
+  "https://pic1.imgdb.cn/i/034tCxUZam8KDc1Tfldysj.jpg",
+  "https://pic1.imgdb.cn/i/034tCxHZEnZpimvVAafNRg.jpg",
 ];
 
 export default {
