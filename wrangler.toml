@@ -1,0 +1,5 @@
+name = "catvod-wallpaper"
+main = "src/worker.js"
+compatibility_date = "2026-01-01"
+
+# GitHub 连接后 Cloudflare 会自动构建部署，无需本地 wrangler
